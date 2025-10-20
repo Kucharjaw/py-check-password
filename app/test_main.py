@@ -8,14 +8,14 @@ from app.main import check_password
         ("Pass@word1", True),
         ("Dawid12345#", True),
 
-        ("Daw@1", False),  # to short
-        ("password@1", False),  # brak duzych liter, brak cyfry, brak znaku specjalnego
-        ("A" * 17 + "1@", False),  # za dlugie
+        ("Daw@1", False),
+        ("password@1", False),
+        ("A" * 17 + "1@", False),
         ("Password1", False),
         ("Password#", False),
         ("Pass word#", False),
     ],
 )
-def test_check_password(password, expected):
+def test_check_password(password: str, expected: bool) -> None:
     result = check_password(password)
     assert result == expected
